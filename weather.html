@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="weather.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather__header">
+        <form class="weather__search">
+          <input
+            type="text" id="text"
+            placeholder="Search for a city"
+            class="weather__searchform"
+          onkeydown="" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </form>
+         <div class="weather__units">
+            <!-- <span class="weather__unit__celsius">&#176C</span> -->
+            <!-- <span class="weather__unit__farenheit">&#176f</span> -->
+
+         </div>
+
+      </div>
+
+      <div class="weather__body">
+        <!-- <h1 class="weather__city">London,UK</h1> -->
+        <div class="weather__datetime">
+            <!-- <p>Monday 14 march 2024 11:14AM</p>   -->
+        </div>
+        <div class="weather__forecast">
+          <button type="submit" id="btn">Submit</button>
+        </div>
+        <div class="weather__icon">
+            <!-- <img src="https://cdn0.iconfinder.com/data/icons/weather-596/132/weather-41-512.png"  alt=""> -->
+        </div>
+        <!-- <p class="weather__temperature"> -->
+           <!-- 18&#176 -->
+        <!-- </p> -->
+          <div class="weather__minmax">
+            <!-- <p> Min:12&#176</p> -->
+            <!-- <p> Max:16&#176</p> -->
+        </div>
+      </div>
+
+
+      <div class="weather__info">
+          <h5 style="color: white; font-size: 1.8rem; margin-left: auto;" id="namecity"></h5>
+         <!-- <div class="weather__card">
+        <i class="fa-solid fa-droplet"></i>
+        <p>CITY</p>
+ <p id="realfeel5" class="weather__realfeel">18&#176</p>
+         </div> -->
+         <br>
+        <div class="weather__card">
+            <i class="fa-solid fa-temperature-three-quarters"></i>
+        <p>Temperature</p>
+
+              <p id="realfeel1" class="weather__realfeel">18&#176</p>
+              
+<!-- </div> -->
+</div>
+      <div class="weather__card">
+        <i class="fa-solid fa-droplet "></i>
+        <p>Humidity</p>
+ <p id="realfeel2" class="weather__realfeel">18&#176</p>
+</div>
+
+<div class="weather__card">
+            <i class="fa-solid fa-wind"></i>
+        <p>Wind</p>
+            <p id="realfeel3" class="weather__realfeel">18&#176</p>
+        </div>
+        <div class="weather__card">
+          <!-- <i class="fa-solid fa-city"></i> -->
+          <i class="fa-solid fa-gauge"></i>
+          <p>Pressure</p>
+          <p id="realfeel4" class="weather__realfeel"></p>
+        </div>
+
+<!-- </div> -->
+
+
+
+
+ <script src="weather.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
