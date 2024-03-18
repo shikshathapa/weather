@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link rel="stylesheet" href="weather.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <style>
+    body {
+      /* box-sizing: border-box; */
+      margin: 0;
+      padding: 0;
+      position: relative;
+      margin-left: 400px;
+      background: linear-gradient(
+        to bottom,
+        #2996e3ec 0%,
+        rgba(185, 145, 96, 0.393) 100%
+      );
+      /* background-image: url(https://www.bhmpics.com/downloads/pink-and-orange-backgrounds-/27.abstract-blurred-background-defocused-orange-gradient.jpg); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 545px;
+
+      width: 500px;
+      border-radius: 10px;
+      margin-top: 5px;
+    }
+    .container {
+      background-image: url(https://www.freecodecamp.org/news/content/images/2021/09/frozen-bubble-1943224_1280.jpg);
+      /* background-image: url(https://wallpapershome.com/images/wallpapers/sphere-2560x1440-4k-hd-wallpaper-background-sunset-transparent-plant-245.jpg); */
+      background-size: cover;
+      height: 545px;
+
+      /* width: 500px; */
+      /* border-radius: 10px; */
+      /* margin-top: 5px; */
+    }
+    #textarea {
+      margin-top: 50px;
+      width: 300px;
+      background-color: aliceblue;
+      border: aliceblue;
+      height: 30px;
+      border-radius: 20px;
+    }
+    #btn {
+      height: 30px;
+      width: 90px;
+      border-radius: 20px;
+      /* background-color: black; */
+      /* color: white; */
+      color: black;
+      /* color: aliceblue; */
+      border: rgb(81, 80, 80);
+    }
+    #btn:hover {
+      /* color: purple; */
+      color: white;
+      background: linear-gradient(
+        to bottom,
+        #2996e3ec 0%,
+        rgba(236, 182, 116, 0.845) 100%
+      );
+    }
+    /* .box{
+        height: 200px;
+        width: 300px;
+        background-color: rgb(81, 80, 80);
+        margin-top: 50px;
+        opacity: 0.2;
+        border-radius: 25px;
+
+    } */
+    i {
+      margin-left: -20px;
+    }
+    .statement {
+      font-size: 50px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .name {
+      font-size: 30px;
+      color: black;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    #Temp,
+    #City,
+    #Humidity,
+    #Weather {
+      color: white;
+      text-shadow: 2px 2px 8px #ff0000;
+      text-shadow: 3px 2px 10px rgb(84, 84, 245);
+    }
+    .app {
+      font-size: 5rem;
+      color: white;
+    }
+  </style>
+  <body>
+    <center>
+      <div class="container">
+        <div class="statement">
+          <span class="app">Weather App</span>
+          <!-- <h3 style="color: white">Weather App</h3> -->
+        </div>
+        <input
+          type="text"
+          id="textarea"
+          placeholder="Search for location"
+          style="height: 30px"
+        /><i class="fa fa-search"></i><br /><br />
+        <button type="submit" id="btn">Submit</button>
+        <div class="box">
+          <br /><br /><br />
+          <div class="name" id="City"></div>
+          <br />
+          <div class="name" id="Humidity"></div>
+          <br />
+          <div class="name" id="Temp"></div>
+          <br />
+          <div class="name" id="Weather"></div>
+          <br />
+        </div>
+      </div>
+    </center>
+
+    <script>
+      console.log("working");
+      let textarea = document.getElementById("textarea");
+      let City = document.getElementById("City");
+      let Humdity = document.getElementById("Humidity");
+      let Weather = document.getElementById("Weather");
+      let Temperature = document.getElementById("Temp");
+      let button = document.getElementById("btn");
+
+      button.addEventListener("click", function () {
+        const url =
+          "https://api.openweathermap.org/data/2.5/weather?q=" +
+          textarea.value +
+          "&appid=ff092519bc84a7badf9349529e5ce1d5";
+
+        const fetchdata = () => {
+          fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+              let tempC = data.main.temp - 273.15;
+              tempC = tempC.toFixed(2);
+
+              City.innerHTML = `City: ${data.name}`;
+              Weather.innerHTML = `Weather: ${data.weather[0].description}`;
+              Humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
+              Temperature.innerHTML = `Temperature: ${tempC}`;
+            });
+        };
+
+        fetchdata();
+      });
+    </script>
+  </body>
+</html>
